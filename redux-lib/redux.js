@@ -32,14 +32,7 @@ var Redux = (function() {
   }
 
   var createStore = function(reducer, initialState) {
-    state = initialState;
-    reducer = reducer;
 
-    return {
-      disptach: disptach,
-      subscribe: subscribe,
-      getState: getState
-    }
   };
 
 

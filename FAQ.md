@@ -7,7 +7,7 @@
 5. Why we are using payload as attribute for actions?
 6. Is there a convention for action attribute?
 7. Why do we use createReducer function?
-8. what is applyMiddleware function in redux?
+8.
 9. why do we have 3 root reducers db, local, vendor?
 10. why we are using Provider
 11. what is connect function job
@@ -19,7 +19,7 @@
  * to enhance the store with third-party capabilities such as middleware,
  * time travel, persistence, etc. The only store enhancer that ships with Redux
  * is `applyMiddleware()`.
- list
+ examples
  redux-batched-subscribe — Customize batching and debouncing calls to the store subscribers
 redux-history-transitions — History transitions based on arbitrary actions
 redux-optimist — Optimistically apply actions that can be later committed or reverted
@@ -45,7 +45,7 @@ redux-side-effects — Utilize Generators for declarative yielding of side effec
 7. After a while, it becomes apparent that most reducers are just switch statements over action.type. Since the switch syntax can be hard to read and prone to errors, there are a few libraries that try to make writing reducers easier and cleaner
 8.
 9. This allows for easier management of the different parts when deciding what needs to be synced to local storage, or when clearing stale data.
-10.
-11.
+10. Provider is a react component that adds the redux store to it's context and enable us to connect different components with redux state
+11. react component that help us connect and map data from the store to our component
 12. Turns an object whose values are action creators, into an object with the same keys, but with every action creator wrapped into a dispatch call so they may be invoked directly.
 The only use case for bindActionCreators is when you want to pass some action creators down to a component that isn't aware of Redux, and you don't want to pass dispatch or the Redux store to it.
