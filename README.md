@@ -1,4 +1,4 @@
-## How to use Redux and to use it with React
+## How to use Redux and how to use it with React
 
 This are simple examples I made to help my team understand redux and the connection of redux to react better.
 
