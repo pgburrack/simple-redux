@@ -17,6 +17,8 @@ This are simple examples I made to help my team understand redux and the connect
 
 ### TODO
 - add example/ explaining about react-redux connect
-- add example of file structure
 - add example with webpack 2
+- add example with immutable
+- add example with reselect lib
+- add example with redux-act
 
