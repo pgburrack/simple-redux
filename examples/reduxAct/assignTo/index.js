@@ -40,8 +40,11 @@ var reducer = ReduxAct.createReducer({
         counter: state.counter + 1
       }),
   [decrement]: (state) => Object.assign({}, state, {counter: state.counter - 1}),
-  [multiply]: (state, action) => Object.assign({}, state, {counter: state.counter * action.payload}),
-  [setError]: (state, action) => Object.assign({}, state, {error: action.payload})
+  [multiply]: (state, action) => {
+    console.log(state, action);
+    return Object.assign({}, state, {counter: state.counter * action})
+  },
+  [setError]: (state, action) => Object.assign({}, state, {error: action})
 }, initialState);
 
 
@@ -69,6 +72,14 @@ const enhancer = composeEnhancers(
 var store = Redux.createStore(reducer, initialState, enhancer);
 
 ///////////////////////////////////////////////////////
+/// Assigning action to store
+///////////////////////////////////////////////////////
+multiply.assignTo(store);
+increment.assignTo(store);
+decrement.assignTo(store);
+setError.assignTo(store);
+
+///////////////////////////////////////////////////////
 /// UI view framework
 ///////////////////////////////////////////////////////
 function updateView() {
@@ -84,18 +95,18 @@ store.subscribe(updateView);
 /// dispatch = send action using action creator
 ///////////////////////////////////////////////////////
 document.getElementById('inc').onclick = function() {
-  store.dispatch(increment());
+  increment();
 }
 document.getElementById('dec').onclick = function() {
-  store.dispatch(decrement());
+  decrement();
 }
 
 document.getElementById('multiply').onclick = function() {
-  store.dispatch(multiply(Math.floor(Math.random() * 100)));
+  multiply(Math.floor(Math.random() * 100));
 }
 
 document.getElementById('errorBtn').onclick = function() {
-  store.dispatch(setError(new Error('new Error message')));
+  setError(new Error('new Error message'));
 }
 
 ///////////////////////////////////////////////////////

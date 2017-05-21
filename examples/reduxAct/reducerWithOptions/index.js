@@ -41,8 +41,14 @@ var reducer = ReduxAct.createReducer({
       }),
   [decrement]: (state) => Object.assign({}, state, {counter: state.counter - 1}),
   [multiply]: (state, action) => Object.assign({}, state, {counter: state.counter * action.payload}),
-  [setError]: (state, action) => Object.assign({}, state, {error: action.payload})
+  [setError]: (state) => Object.assign({}, state, {error: action.payload})
 }, initialState);
+
+/// options
+reducer.options({
+  payload: false
+});
+
 
 
 ///////////////////////////////////////////////////////
