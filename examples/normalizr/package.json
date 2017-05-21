@@ -1,0 +1,18 @@
+{
+  "name": "normalizr-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open"
+  },
+  "author": "Liron Burrack",
+  "license": "ISC",
+  "dependencies": {
+    "normalizr": "^3.2.2",
+    "redux": "^3.6.0",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
