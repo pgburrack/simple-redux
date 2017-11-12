@@ -1,0 +1,67 @@
+const Redux = require('redux');
+
+const initialState = {
+  counter: 0
+};
+///////////////////////////////////////////////////////
+/// Reducer
+///////////////////////////////////////////////////////
+var reducer = function(state, action) {
+  switch(action.type) {
+    case 'INC':
+      return Object.assign({}, state, {
+        counter: state.counter + 1
+      });
+    case 'DEC':
+      return Object.assign({}, state, {counter: state.counter - 1});
+    default:
+      return state;
+  }
+};
+
+///////////////////////////////////////////////////////
+/// Action Creator
+///////////////////////////////////////////////////////
+var increment = function() {
+  return {
+    type: 'INC'
+  }
+};
+
+var decrement = function() {
+  return {
+    type: 'DEC'
+  };
+};
+
+///////////////////////////////////////////////////////
+/// Creating store
+///////////////////////////////////////////////////////
+var store = Redux.createStore(reducer, initialState);
+
+///////////////////////////////////////////////////////
+/// UI view framework
+///////////////////////////////////////////////////////
+function updateView() {
+  document.getElementById('container').innerText = store.getState().counter;
+}
+///////////////////////////////////////////////////////
+/// subscribe = every time the store will update it will update updateView function
+///////////////////////////////////////////////////////
+store.subscribe(updateView);
+
+///////////////////////////////////////////////////////
+/// dispatch = send action using action creator
+///////////////////////////////////////////////////////
+document.getElementById('inc').onclick = function() {
+  store.dispatch(increment());
+}
+document.getElementById('dec').onclick = function() {
+  store.dispatch(decrement());
+}
+
+
+///////////////////////////////////////////////////////
+/// render
+///////////////////////////////////////////////////////
+updateView();

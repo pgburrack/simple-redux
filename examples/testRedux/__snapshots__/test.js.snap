@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actions should create an action to set publishers 1`] = `
+Object {
+  "payload": Array [
+    "publisher1",
+    "publisher2",
+  ],
+  "type": "SET_PUBLISHERS",
+}
+`;
