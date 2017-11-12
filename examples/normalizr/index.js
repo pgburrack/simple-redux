@@ -11,6 +11,9 @@ var initialState = {
   }
 };
 
+var nor = normalize(DATA, schema);
+var de = denormalize(nor.result, schema, nor.entities);
+
 ///////////////////////////////////////////////////////
 /// Reducer
 ///////////////////////////////////////////////////////
@@ -41,7 +44,7 @@ var fetchPublisher = function() {
   }
 };
 
-var updatePublisher = function() {
+var updatePublisher = function(data) {
   return {
     type: 'UPDATE_PUBLISHER',
     payload: DATA
